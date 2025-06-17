@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerAnimManage : MonoBehaviour
 {
     private Animator animator;
-    private float timerToShoot = 0.6f;
+    private float timerToShoot = 0.2f;
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -12,11 +12,11 @@ public class PlayerAnimManage : MonoBehaviour
     private void Update()
     {
         timerToShoot -= Time.deltaTime;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             if (timerToShoot <= 0)
             {
-                timerToShoot = 0.4f;
+                timerToShoot = 0.2f;
                 animator.SetTrigger("Shoot");
             }
         }
