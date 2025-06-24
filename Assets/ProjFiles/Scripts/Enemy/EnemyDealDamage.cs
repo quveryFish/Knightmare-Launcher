@@ -9,11 +9,14 @@ public class EnemyDealDamage : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (timer <= 0)
+        if (collision.gameObject.GetComponent<PlayerHP>() != null)
         {
-            PlayerHP.Instance.DealDamage(10);
-            timer = 1.5f;
+            if (timer <= 0)
+            {
+                PlayerHP playerHP = collision.gameObject.GetComponent<PlayerHP>();
+                playerHP.DealDamage(10);
+                timer = 1.5f;
+            }
         }
-
     }
 }

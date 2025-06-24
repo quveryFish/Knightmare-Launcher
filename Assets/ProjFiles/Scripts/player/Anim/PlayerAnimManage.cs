@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PlayerAnimManage : MonoBehaviour
 {
+    private const string ANIM_SHOOT = "Shoot";
+
+
     private Animator animator;
     private float timerToShoot = 0.2f;
     private void Start()
@@ -17,7 +20,7 @@ public class PlayerAnimManage : MonoBehaviour
             if (timerToShoot <= 0)
             {
                 timerToShoot = 0.2f;
-                animator.SetTrigger("Shoot");
+                animator.SetTrigger(ANIM_SHOOT);
             }
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))

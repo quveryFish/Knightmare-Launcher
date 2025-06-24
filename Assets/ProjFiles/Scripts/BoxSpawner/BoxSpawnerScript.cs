@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class BoxSpawnerScript : MonoBehaviour
 {
+    [SerializeField] private GameObject boxPrefab;
+
     private float timerToSpawnBox = 10.5f;
     private float time = 10.5f;
 
-    [SerializeField] private GameObject boxPrefab;
     void Update()
     {
         timerToSpawnBox -= Time.deltaTime;

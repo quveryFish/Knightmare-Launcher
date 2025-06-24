@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
     [SerializeField] private int speed = 7;
+    
+    private GameObject player;
     private Rigidbody rb;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = PlayerHP.Instance.gameObject;
     }
 
     void Update()

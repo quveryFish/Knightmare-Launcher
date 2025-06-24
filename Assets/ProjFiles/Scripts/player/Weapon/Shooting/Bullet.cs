@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float bulletLifeTime;
-    [SerializeField] private Explosions explosionsData;
+    [SerializeField] private ExplosionData explosionsData;
 
     private void Update()
     {
