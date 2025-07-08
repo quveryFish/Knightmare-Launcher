@@ -5,10 +5,14 @@ public class PlayerHP : MonoBehaviour
 {
     public static PlayerHP Instance;
 
-    private int HP = 100;
+    [SerializeField] private int maxHP = 200;
 
     [SerializeField] private Text healthText;
     [SerializeField] private GameObject loseUI;
+    [SerializeField] private Image hpBar;
+
+    private int currentHP = 100;
+
     private void Awake()
     {
         if (Instance == null)
@@ -22,22 +26,29 @@ public class PlayerHP : MonoBehaviour
     }
     private void Start()
     {
+        currentHP = maxHP;
         loseUI.SetActive(false);
+        ShowHPui();
     }
     public void DealDamage(int damage)
     {
-        if (HP > 0)
+        if (currentHP > 0)
         {
-            HP -= damage;
-            healthText.text = "Health: " + HP;
+            currentHP -= damage;
+            ShowHPui();
         }
-        else
+        if (currentHP <= 0)
         {
-            HP = 0;
+            currentHP = 0;
             loseUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0f;
         }
+    }
+    private void ShowHPui()
+    {
+        healthText.text = "Health: " + currentHP;
+        hpBar.fillAmount = (float)currentHP / maxHP;
     }
 }
