@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyDealDamage : MonoBehaviour
 {
+    [SerializeField] private EnemyData enemyData;
 
     private Animator animator;
 
@@ -22,7 +23,7 @@ public class EnemyDealDamage : MonoBehaviour
             {
                 animator.SetTrigger("toAttack");
                 PlayerHP playerHP = collision.gameObject.GetComponent<PlayerHP>();
-                playerHP.DealDamage(10);
+                playerHP.DealDamage(enemyData.enemyDamage);
                 timer = 1.5f;
             }
         }

@@ -46,6 +46,18 @@ public class PlayerHP : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+    public void AddHP(int amount)
+    {
+        if (currentHP < maxHP)
+        {
+            currentHP += amount;
+            if (currentHP > maxHP)
+            {
+                currentHP = maxHP;
+            }
+            ShowHPui();
+        }
+    }
     private void ShowHPui()
     {
         healthText.text = "Health: " + currentHP;

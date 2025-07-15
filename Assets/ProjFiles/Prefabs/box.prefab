@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 483127285196334258}
   - component: {fileID: 3900285700244394462}
   - component: {fileID: -8132251882450340662}
+  - component: {fileID: 3243105908262910952}
   m_Layer: 0
   m_Name: box
   m_TagString: Untagged
@@ -33,7 +34,8 @@ Transform:
   m_LocalPosition: {x: -29.09, y: -0.95, z: 20.81}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 663037467588883285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4781757578339183893
@@ -149,3 +151,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2fda70f3c949a4292c58d7e75afe93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 0}
+--- !u!114 &3243105908262910952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661837176297234078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65936768773c9744192be2dc41fa965b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootDrops:
+  - {fileID: 5693779494251480414, guid: 01438b978a4c69542a9ebe649726ef55, type: 3}
+  spawnPoint: {fileID: 7610752118580534523}
+--- !u!1 &7610752118580534523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663037467588883285}
+  m_Layer: 0
+  m_Name: lootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663037467588883285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610752118580534523}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.001, y: -0, z: 0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8673416119124225041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private int speed = 7;
-    
+    [SerializeField] private EnemyData enemyData;
+
     private GameObject player;
     private Rigidbody rb;
     private void Start()
@@ -15,8 +15,12 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        Move();
+    }
+    private void Move()
+    {
         Vector3 direction = (player.transform.position - transform.position).normalized;
-        Vector3 velocity = direction * speed;
+        Vector3 velocity = direction * enemyData.enemySpeed;
         gameObject.transform.LookAt(player.transform.position);
         //velocity.y = rb.velocity.y;
         rb.linearVelocity = velocity;
