@@ -9,8 +9,18 @@ public class ExpManager : MonoBehaviour
     private int currentExp = 0;
 
     [SerializeField] private Image expBar;
+    [SerializeField] private GameObject winUI;
 
-    public bool onMaxExp = false;
+    private void Update()
+    {
+        if (currentExp == maxExp)
+        {
+            winUI.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
     public void AddExp()
     {
         if (currentExp < maxExp)
@@ -18,6 +28,8 @@ public class ExpManager : MonoBehaviour
             currentExp += 10;
             ShowEXPui();
         }
+
+
     }
     public void ResetExp()
     {

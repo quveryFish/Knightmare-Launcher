@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Enemy 2
   m_EditorClassIdentifier: 
   enemyHP: 20
-  enemyDamage: 35
+  enemyDamage: 12
   enemySpeed: 11
