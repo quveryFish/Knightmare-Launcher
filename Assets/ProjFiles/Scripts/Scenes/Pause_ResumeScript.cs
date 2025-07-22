@@ -12,12 +12,16 @@ public class Pause_ResumeScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-                Time.timeScale = 0f;
-                pauseMenu.SetActive(true);
-                player.GetComponent<CameraRotation>().enabled = false;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+            PauseGame();
         }
+    }
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+        pauseMenu.SetActive(true);
+        player.GetComponent<CameraRotation>().enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void ResumeGame()
     {

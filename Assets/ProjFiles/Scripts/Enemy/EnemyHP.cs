@@ -3,11 +3,15 @@ using UnityEngine;
 public class EnemyHP : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
+    private float enemyHP = 50;
     private void Start()
     {
-        enemyHP = enemyData.enemyHP;
+        if (enemyData != null)
+        {
+            enemyHP = enemyData.enemyHP;
+        }
+
     }
-    private float enemyHP = 50;
     public void TakeDamage(float damage)
     {
         enemyHP -= damage;
