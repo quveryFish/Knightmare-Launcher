@@ -5,7 +5,7 @@ public class ExpManager : MonoBehaviour
 {
     public static ExpManager Instance;
 
-    [SerializeField] private int maxExp = 100;
+    [SerializeField] private int maxExp = 300;
     private int currentExp = 0;
 
     [SerializeField] private Image expBar;

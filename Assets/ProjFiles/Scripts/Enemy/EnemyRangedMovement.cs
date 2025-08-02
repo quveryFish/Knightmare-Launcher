@@ -35,13 +35,14 @@ public class EnemyRangedMovement : MonoBehaviour
             GetDirection();
             timer = timeToSet;
         }
-        gameObject.transform.LookAt(direction);
+        gameObject.transform.LookAt(player.transform.position);
         velocity.y = rb.linearVelocity.y;
         rb.linearVelocity = velocity;
     }
     private void GetDirection()
     {
-         direction = (new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40)) + transform.position).normalized;
-         velocity = direction * enemyData.enemySpeed;
+         direction = new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40)).normalized;
+
+        velocity = direction * enemyData.enemySpeed;
     }
 }

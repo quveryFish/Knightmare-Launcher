@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7283e9acaad444b837c604af3301d5, type: 3}
   m_Name: Enemy 1
   m_EditorClassIdentifier: 
-  enemyHP: 60
+  enemyHP: 50
   enemyDamage: 5
   enemySpeed: 7
