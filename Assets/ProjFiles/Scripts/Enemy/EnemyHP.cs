@@ -1,11 +1,14 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
+    private EnemyOnDeath enemyOnDeath;
     private float enemyHP = 50;
     private void Start()
     {
+        enemyOnDeath = gameObject.GetComponent<EnemyOnDeath>();
         if (enemyData != null)
         {
             enemyHP = enemyData.enemyHP;
@@ -17,8 +20,14 @@ public class EnemyHP : MonoBehaviour
         enemyHP -= damage;
         if (enemyHP <= 0)
         {
+            enemyOnDeath.OnDeath();
             Destroy(gameObject);
         }
+    }
+
+    public float GetEnemyHP()
+    {
+        return enemyHP;
     }
     
 }

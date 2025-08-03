@@ -22,6 +22,7 @@ public class Shoot : MonoBehaviour
         {
             if (timer <= 0)
             {
+                PlayerSoundManager.Instance.AudioSourceShoot.Play();
                 toShoot();
                 timer = timeToSet;
             }

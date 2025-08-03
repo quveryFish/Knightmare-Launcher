@@ -376,11 +376,12 @@ MonoBehaviour:
   - {fileID: 1590487552}
   listObj: {fileID: 2048520395}
   enemys:
-  - {fileID: 4654373740627239014, guid: 50526797bbd9ba048adad7b524e98e28, type: 3}
   - {fileID: 4654373740627239014, guid: 27161f74dfcad5041aec97b362f98c35, type: 3}
+  - {fileID: 4654373740627239014, guid: 27161f74dfcad5041aec97b362f98c35, type: 3}
+  - {fileID: 4654373740627239014, guid: 50526797bbd9ba048adad7b524e98e28, type: 3}
   - {fileID: 4654373740627239014, guid: 6a65a44e422a96944a98502521b0bea9, type: 3}
   - {fileID: 4654373740627239014, guid: 6a65a44e422a96944a98502521b0bea9, type: 3}
-  timeToSet: 7.5
+  timeToSet: 11
 --- !u!1001 &110924872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10782,6 +10783,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3587681302981324769, guid: 9694882603df92646a43f244f55d588a, type: 3}
+      propertyPath: m_Volume
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587681302981324769, guid: 9694882603df92646a43f244f55d588a, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4500453353226748975, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

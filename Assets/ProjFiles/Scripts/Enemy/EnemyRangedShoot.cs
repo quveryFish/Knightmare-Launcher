@@ -5,12 +5,13 @@ public class EnemyRangedShoot : MonoBehaviour
     [SerializeField] private int bulletSpeed = 5;
     [SerializeField] private GameObject rocketPref;
     [SerializeField] private Transform rocketSpawnPoint;
-    private float timer = 1.8f;
-    private float timeToSet = 1.8f;
+    private float timer;
+    private float timeToSet = 2.5f;
 
     Transform playerTransform;
     private void Start()
     {
+        timer = timeToSet;
         playerTransform = PlayerHP.Instance.transform;
     }
 

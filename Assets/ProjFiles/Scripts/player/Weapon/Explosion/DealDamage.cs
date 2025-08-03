@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DealDamage : MonoBehaviour
 {
-    private float timeToDestoy = 0.1f;
+    private float timeToDestoy = 0.15f;
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.GetComponent<EnemyHP>()?.TakeDamage(10);
