@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Instantiate(explosionsData.explosionsList[0], gameObject.transform.position, Quaternion.identity);
+        collision.gameObject.GetComponent<EnemyOnDeath>()?.OnDeath();
         Destroy(gameObject);
-
     }
 }
