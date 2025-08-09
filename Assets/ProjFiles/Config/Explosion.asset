@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionsList:
   - {fileID: 6437776173635247674, guid: 9deaff49458b0734e8d1ea7796db2362, type: 3}
+  - {fileID: 6437776173635247674, guid: 0d2dff747e7becb4a8f9f7c97a0dcc95, type: 3}
+  - {fileID: 2862932831413816706, guid: 0d440e6832f284648bf1b0e842496b78, type: 3}

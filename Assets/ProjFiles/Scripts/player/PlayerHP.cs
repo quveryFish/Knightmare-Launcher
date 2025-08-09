@@ -63,4 +63,10 @@ public class PlayerHP : MonoBehaviour
         healthText.text = "Health: " + currentHP;
         hpBar.fillAmount = (float)currentHP / maxHP;
     }
+
+    public int GetMaxHP(int addmaxHP)
+    {
+        maxHP += addmaxHP;
+        return maxHP;
+    }
 }

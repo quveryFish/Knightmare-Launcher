@@ -1,14 +1,17 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemyDealDamage : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
 
+    private AudioSource audioSource;
     private Animator animator;
 
     private float timer = 1.5f;
     private void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
         animator = gameObject.GetComponentInChildren<Animator>();
     }
     private void Update()
@@ -22,6 +25,7 @@ public class EnemyDealDamage : MonoBehaviour
             if (timer <= 0)
             {
                 animator.SetTrigger("toAttack");
+                audioSource.Play();
                 PlayerHP playerHP = collision.gameObject.GetComponent<PlayerHP>();
                 playerHP.DealDamage(enemyData.enemyDamage);
                 timer = 1.5f;

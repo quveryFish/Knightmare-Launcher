@@ -8,11 +8,14 @@ public class EnemyRangedShoot : MonoBehaviour
     private float timer;
     private float timeToSet = 2.5f;
 
+    private AudioSource audioSource;
+
     Transform playerTransform;
     private void Start()
     {
         timer = timeToSet;
         playerTransform = PlayerHP.Instance.transform;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -26,6 +29,7 @@ public class EnemyRangedShoot : MonoBehaviour
     }
     private void toShoot()
     {
+        audioSource.Play();
         Quaternion rotatedRotation = rocketSpawnPoint.rotation * Quaternion.Euler(0, 90, 0);
         GameObject bullet = Instantiate(rocketPref, rocketSpawnPoint.position, rotatedRotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
