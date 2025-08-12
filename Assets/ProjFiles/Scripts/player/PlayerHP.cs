@@ -64,9 +64,16 @@ public class PlayerHP : MonoBehaviour
         hpBar.fillAmount = (float)currentHP / maxHP;
     }
 
-    public int GetMaxHP(int addmaxHP)
+    public void SetMaxHP()
+    {
+        currentHP = maxHP;
+        ShowHPui();
+    }
+
+    public int AddMaxHP(int addmaxHP)
     {
         maxHP += addmaxHP;
+        ShowHPui();
         return maxHP;
     }
 }

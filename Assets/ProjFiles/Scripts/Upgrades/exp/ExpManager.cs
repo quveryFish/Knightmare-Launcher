@@ -5,20 +5,21 @@ public class ExpManager : MonoBehaviour
 {
     public static ExpManager Instance;
 
-    [SerializeField] private int maxExp = 300;
+    [SerializeField] private int maxExp = 100;
     private int currentExp = 0;
 
     [SerializeField] private Image expBar;
-    [SerializeField] private GameObject winUI;
+    [SerializeField] private GameObject UpgradeUI;
 
     private void Update()
     {
         if (currentExp == maxExp)
         {
-            winUI.SetActive(true);
+            UpgradeUI.SetActive(true);
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            ResetExp();
         }
     }
     public void AddExp()

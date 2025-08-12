@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
-    private bool isMoving = false;
+    //private bool isMoving = false;
 
     void Start()
     {
