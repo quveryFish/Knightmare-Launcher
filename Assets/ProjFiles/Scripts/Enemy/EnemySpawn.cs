@@ -31,6 +31,11 @@ public class EnemySpawn : MonoBehaviour
         {
             spawnPoint = spawners[i].transform;
             Instantiate(enemys[Random.Range(0, enemys.Count)], spawnPoint.transform.position, Quaternion.identity, listObj);
+            if (timeToSet > 3f)
+            {
+                timeToSet -= 0.03f;
+            }
+
         }
     }
 }
