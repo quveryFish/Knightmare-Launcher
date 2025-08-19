@@ -35,7 +35,7 @@ public class Shoot : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (timer <= 0)
             {
