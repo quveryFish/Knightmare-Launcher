@@ -7,22 +7,67 @@ public class PlayerAnimManage : MonoBehaviour
 
 
     private Animator animator;
-    private float timerToShoot = 0.2f;
+    private float timerToShoot = 0.5f;
+
+    private PlayerMovement playerMovement;
+    private PlayerDash playerDash;
+
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+
+        playerMovement = gameObject.GetComponentInParent<PlayerMovement>();
+        playerDash = gameObject.GetComponentInParent<PlayerDash>();
     }
     private void Update()
     {
+        ShootAnim();
+
+        SetRunningAnim();
+
+        DashAnim();
+    }
+
+    private void ShootAnim()
+    {
         timerToShoot -= Time.deltaTime;
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (timerToShoot <= 0)
             {
-                timerToShoot = 0.2f;
+                timerToShoot = 0.5f;
                 animator.SetTrigger(ANIM_SHOOT);
             }
         }
+    }
+
+    private void DashAnim()
+    {
+        if (playerDash.isDashing)
+        {
+            if (playerMovement.GetHorizontalInput() > 0)
+            {
+                animator.SetTrigger("DashRight");
+            }
+            else if (playerMovement.GetHorizontalInput() < 0)
+            {
+                animator.SetTrigger("DashLeft");
+            }
+            else if (playerMovement.GetVerticalInput() > 0)
+            {
+                animator.SetTrigger("DashForward");
+            }
+            else if (playerMovement.GetVerticalInput() < 0)
+            {
+                animator.SetTrigger("DashBackward");
+            }
+            playerDash.isDashing = false;
+        }
+       
+    }
+
+    private void SetRunningAnim()
+    {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             animator.SetBool("isRunning", true);

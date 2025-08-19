@@ -9,6 +9,9 @@ public class EnemySpawn : MonoBehaviour
     private Transform spawnPoint;
     private float timer;
     [SerializeField] private float timeToSet = 7.5f;
+
+    private int timeToDecreaseSpawnRate = 3;
+    private float spawnDecreasingNum = 0.03f;
     void Start()
     {
         timer = timeToSet;
@@ -31,9 +34,9 @@ public class EnemySpawn : MonoBehaviour
         {
             spawnPoint = spawners[i].transform;
             Instantiate(enemys[Random.Range(0, enemys.Count)], spawnPoint.transform.position, Quaternion.identity, listObj);
-            if (timeToSet > 3f)
+            if (timeToSet > timeToDecreaseSpawnRate)
             {
-                timeToSet -= 0.03f;
+                timeToSet -= spawnDecreasingNum;
             }
 
         }
