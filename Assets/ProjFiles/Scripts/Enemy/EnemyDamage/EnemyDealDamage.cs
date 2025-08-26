@@ -27,7 +27,7 @@ public class EnemyDealDamage : MonoBehaviour
                 animator.SetTrigger("toAttack");
                 audioSource.Play();
                 PlayerHP playerHP = collision.gameObject.GetComponent<PlayerHP>();
-                playerHP.DealDamage(enemyData.enemyDamage);
+                playerHP.DealDamage(enemyData.enemyDamage * EnemySpawn.Instance.GetEnemyLvlCount());
                 timer = 1.5f;
             }
         }

@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
@@ -11,7 +10,7 @@ public class EnemyHP : MonoBehaviour
         enemyOnDeath = gameObject.GetComponent<EnemyOnDeath>();
         if (enemyData != null)
         {
-            enemyHP = enemyData.enemyHP;
+            enemyHP = enemyData.enemyHP * EnemySpawn.Instance.GetEnemyLvlCount();
         }
 
     }
