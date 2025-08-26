@@ -4309,20 +4309,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7203958721841147112, guid: 9694882603df92646a43f244f55d588a, type: 3}
   m_PrefabInstance: {fileID: 2892192485659449324}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &776095382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776095373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf9b1911d6848ad43bae0fa16e896fa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashBar: {fileID: 1892869745}
-  isDashing: 0
 --- !u!1 &800519118
 GameObject:
   m_ObjectHideFlags: 0
@@ -11436,8 +11422,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 70}
-  m_SizeDelta: {x: 800, y: 50}
+  m_AnchoredPosition: {x: 960, y: 56.912}
+  m_SizeDelta: {x: 800, y: 23.8241}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131651099
 MonoBehaviour:
@@ -11855,6 +11841,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -56.413742
       objectReference: {fileID: 0}
+    - target: {fileID: 915326510041816171, guid: 9694882603df92646a43f244f55d588a, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: f03976a358a251043a5c6a9885de09fa, type: 3}
+    - target: {fileID: 915326510041816171, guid: 9694882603df92646a43f244f55d588a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f03976a358a251043a5c6a9885de09fa, type: 3}
     - target: {fileID: 1079816265662254414, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 16.96794
@@ -12023,6 +12017,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.000006681102
       objectReference: {fileID: 0}
+    - target: {fileID: 3360237794136228190, guid: 9694882603df92646a43f244f55d588a, type: 3}
+      propertyPath: dashBar
+      value: 
+      objectReference: {fileID: 1892869745}
     - target: {fileID: 3475308540109868860, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
@@ -12350,10 +12348,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7203958721841147112, guid: 9694882603df92646a43f244f55d588a, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 776095382}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9694882603df92646a43f244f55d588a, type: 3}
 --- !u!23 &3015539590093168891
 MeshRenderer:
