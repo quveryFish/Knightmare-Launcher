@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,28 +15,33 @@ public class PlayerDash : MonoBehaviour
     private bool canDash = false;
     public bool isDashing = false;
 
+    private int dashPower = 1000;
+
+    public int maxDashPower = 3000;
+    public float minTimeToDash = 0.8f;
+
 
     private void Start()
     {
         canDash = false;
         rb = gameObject.GetComponent<Rigidbody>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
-        
+
     }
     private void Update()
     {
-            timer += Time.deltaTime;
-            if (timer >= timeToDash)
+        timer += Time.deltaTime;
+        if (timer >= timeToDash)
+        {
+            canDash = true;
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
             {
-                canDash = true;
-                if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-                {
-                    isDashing = true;
-                    Dash();
-                    timer = 0;
-                }
+                isDashing = true;
+                Dash();
+                timer = 0;
             }
-            ShowDashBar();
+        }
+        ShowDashBar();
     }
 
     public void GetDirection(float vertical, float horizontal)
@@ -62,12 +66,38 @@ public class PlayerDash : MonoBehaviour
     private void Dash()
     {
         GetDirection(playerMovement.GetVerticalInput(), playerMovement.GetHorizontalInput());
-        rb.AddForce(direction * 1000f, ForceMode.Impulse);
+        rb.AddForce(direction * dashPower, ForceMode.Impulse);
         canDash = false;
     }
 
     private void ShowDashBar()
     {
         dashBar.fillAmount = timer / timeToDash;
+    }
+
+    public int GetDashPower()
+    {
+        return dashPower;
+    }
+
+    public float GetTimeToDash()
+    {
+        return timeToDash;
+    }
+    public int AddDashPower()
+    {
+        return dashPower + 500;
+    }
+
+    public float ReduceDashTime()
+    {
+        if (timeToDash >= 1f)
+        {
+            return timeToDash - 0.2f;
+        }
+        else 
+        {
+            return timeToDash;
+        }
     }
 }

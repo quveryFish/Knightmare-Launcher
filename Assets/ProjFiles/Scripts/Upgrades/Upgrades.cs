@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Upgrades : MonoBehaviour
 {
@@ -9,14 +8,24 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private GameObject buttonHealth;
     [SerializeField] private GameObject buttonRadius;
     [SerializeField] private GameObject buttonAtkSpeed;
+    [SerializeField] private GameObject buttonExp;
+    [SerializeField] private GameObject buttonDashPow;
+    [SerializeField] private GameObject buttonDashTime;
 
     private Shoot damage;
     private PlayerHP maxHealth;
+    private ExpManager exp;
+    private PlayerDash dash;
+
+
+    private bool dashPowMaxed = false;
+    private bool dashTimeMaxed = false;
     private void Start()
     {
-
         damage = Shoot.Instance;
         maxHealth = PlayerHP.Instance;
+        exp = ExpManager.Instance;
+        dash = PlayerHP.Instance.gameObject.GetComponent<PlayerDash>();
     }
 
     public void DamageUpgrade()
@@ -48,11 +57,47 @@ public class Upgrades : MonoBehaviour
         DisableButtons();
         CloseUI();
     }
+    public void ExpUpgrade()
+    {
+        exp.AddExpAddingCount();
+        Debug.Log("Exp drop boosted");
+        DisableButtons();
+        CloseUI();
+    }
+    public void DashPowUpgrade()
+    {
+        if (dash.maxDashPower > dash.GetDashPower())
+        {
+            dash.AddDashPower();
+            Debug.Log("Dash power boosted");
+            DisableButtons();
+            CloseUI();
+        }
+        else
+        {
+            dashPowMaxed = true;
+        }
+
+    }
+    public void DashTimeUpgrade()
+    {
+        if (dash.GetTimeToDash() != dash.minTimeToDash)
+        {
+            dash.ReduceDashTime();
+            Debug.Log("Dash time decreased");
+            DisableButtons();
+            CloseUI();
+        }
+        else
+        {
+            dashTimeMaxed = true;
+        }
+    }
 
     private void OnEnable()
     {
         DisableButtons();
-        int rnd = Random.Range(1, 5);
+        int rnd = Random.Range(1, 8);
         Debug.Log(rnd);
 
         switch (rnd)
@@ -73,6 +118,32 @@ public class Upgrades : MonoBehaviour
                 //AttackSpeed
                 buttonAtkSpeed.SetActive(true);
                 break;
+            case 5:
+                //Exp boost
+                buttonExp.SetActive(true);
+                break;
+            case 6:
+                //Dash power
+                if (!dashPowMaxed)
+                {
+                    buttonDashPow.SetActive(true);
+                }
+                else
+                {
+                    rnd = Random.Range(1, 8);
+                }
+                break;
+            case 7:
+                //Dash time
+                if (!dashTimeMaxed)
+                {
+                    buttonDashTime.SetActive(true);
+                }
+                else
+                {
+                    rnd = Random.Range(1, 8);
+                }
+                break;
             default:
                 Debug.Log("No upgrade available");
                 break;
@@ -92,6 +163,9 @@ public class Upgrades : MonoBehaviour
         buttonHealth.SetActive(false);
         buttonRadius.SetActive(false);
         buttonAtkSpeed.SetActive(false);
+        buttonExp.SetActive(false);
+        buttonDashTime.SetActive(false);
+        buttonDashPow.SetActive(false);
     }
 
 }

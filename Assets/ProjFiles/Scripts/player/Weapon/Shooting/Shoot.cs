@@ -74,7 +74,10 @@ public class Shoot : MonoBehaviour
 
     public float SubtractShootingTime(float amount)
     {
-        timeToSet -= amount;
+        if (timeToSet > 0.25f)
+        {
+            timeToSet -= amount;
+        }
         return timeToSet;
     }
 }

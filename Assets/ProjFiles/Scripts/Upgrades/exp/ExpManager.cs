@@ -8,11 +8,14 @@ public class ExpManager : MonoBehaviour
     [SerializeField] private int maxExp = 100;
     private int currentExp = 0;
 
+    private int addExpCount = 10;
+
     [SerializeField] private Image expBar;
     [SerializeField] private GameObject UpgradeUI;
 
     private void Update()
     {
+
         if (currentExp == maxExp)
         {
             UpgradeUI.SetActive(true);
@@ -21,12 +24,13 @@ public class ExpManager : MonoBehaviour
             Cursor.visible = true;
             ResetExp();
         }
+        SetMaxExp();//Cheat
     }
-    public void AddExp()
+    public void AddExp(int addexp)
     {
         if (currentExp < maxExp)
         {
-            currentExp += 10;
+            currentExp += addexp;
             ShowEXPui();
         }
 
@@ -35,11 +39,31 @@ public class ExpManager : MonoBehaviour
     public void ResetExp()
     {
         currentExp = 0;
+        maxExp *= 2;
         ShowEXPui();
     }
     private void ShowEXPui()
     {
         expBar.fillAmount = (float)currentExp / maxExp;
+    }
+
+    private void SetMaxExp()//Cheat
+    {
+        if (Input.GetKeyDown(KeyCode.Home))
+        {
+            currentExp = maxExp;
+            ShowEXPui();
+        }
+    }
+
+    public int GetAddExpCount()
+    {
+        return addExpCount;
+    }
+    public int AddExpAddingCount()
+    {
+        addExpCount += 40;
+        return addExpCount;
     }
 
     private void Awake()
