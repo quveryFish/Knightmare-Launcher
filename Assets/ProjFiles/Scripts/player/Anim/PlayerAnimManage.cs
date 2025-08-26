@@ -5,13 +5,8 @@ public class PlayerAnimManage : MonoBehaviour
 {
     private const string ANIM_SHOOT = "Shoot";
 
-    private const string ANIM_DASH_RIGHT = "DashRight";
-    private const string ANIM_DASH_LEFT = "DashLeft";
-    private const string ANIM_DASH_FORWARD = "DashForward";
-    private const string ANIM_DASH_BACKWARD = "DashBackward";
 
-
-private Animator animator;
+    private Animator animator;
     private float timerToShoot = 0.5f;
 
     private PlayerMovement playerMovement;
@@ -52,19 +47,19 @@ private Animator animator;
         {
             if (playerMovement.GetHorizontalInput() > 0)
             {
-                animator.SetTrigger(ANIM_DASH_RIGHT);
+                animator.SetTrigger("DashRight");
             }
             else if (playerMovement.GetHorizontalInput() < 0)
             {
-                animator.SetTrigger(ANIM_DASH_LEFT);
+                animator.SetTrigger("DashLeft");
             }
             else if (playerMovement.GetVerticalInput() > 0)
             {
-                animator.SetTrigger(ANIM_DASH_FORWARD);
+                animator.SetTrigger("DashForward");
             }
             else if (playerMovement.GetVerticalInput() < 0)
             {
-                animator.SetTrigger(ANIM_DASH_BACKWARD);
+                animator.SetTrigger("DashBackward");
             }
             playerDash.isDashing = false;
         }
