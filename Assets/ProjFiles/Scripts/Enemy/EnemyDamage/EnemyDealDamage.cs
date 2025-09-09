@@ -3,7 +3,6 @@ using UnityEngine.Audio;
 
 public class EnemyDealDamage : MonoBehaviour
 {
-    [SerializeField] private EnemyData enemyData;
 
     private AudioSource audioSource;
     private Animator animator;
@@ -26,8 +25,6 @@ public class EnemyDealDamage : MonoBehaviour
             {
                 animator.SetTrigger("toAttack");
                 audioSource.Play();
-                PlayerHP playerHP = collision.gameObject.GetComponent<PlayerHP>();
-                playerHP.DealDamage(enemyData.enemyDamage * EnemySpawn.Instance.GetEnemyLvlCount());
                 timer = 1.5f;
             }
         }

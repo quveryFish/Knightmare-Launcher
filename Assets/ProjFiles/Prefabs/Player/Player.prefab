@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5634245788630089710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1989226391778263903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913873955624711807}
+  m_Layer: 0
+  m_Name: GranadeSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1913873955624711807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989226391778263903}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.26903856, y: -0, z: -0, w: 0.96312946}
+  m_LocalPosition: {x: -0.153, y: 1.783, z: 1.1040001}
+  m_LocalScale: {x: 2.124526, y: 2.1245263, z: 2.124526}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5634245788630089710}
+  m_LocalEulerAnglesHint: {x: -31.214, y: 0, z: 0}
 --- !u!1 &4154684286904685332
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +94,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2994061585252179405}
+  - {fileID: 1913873955624711807}
   - {fileID: 8034391241430377055}
   m_Father: {fileID: 4500453353226748975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -504,14 +536,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4500453353226748975}
+  - component: {fileID: 8707778005045860768}
   - component: {fileID: 6399398767586824411}
   - component: {fileID: 1651189807808372783}
   - component: {fileID: 3360237794136228190}
   - component: {fileID: 2170147362535530903}
   - component: {fileID: 8727997035304234140}
-  - component: {fileID: 8707778005045860768}
   - component: {fileID: 5509622472244647212}
   - component: {fileID: 7009474047059757422}
+  - component: {fileID: 810579636876016855}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -537,6 +570,27 @@ Transform:
   - {fileID: 2278725661913562169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8707778005045860768
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203958721841147112}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.3558264, z: 1}
+  m_Center: {x: 0, y: 1.1795771, z: 0}
 --- !u!54 &6399398767586824411
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -593,6 +647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashBar: {fileID: 0}
   isDashing: 0
+  maxDashPower: 3000
+  minTimeToDash: 0.8
 --- !u!114 &2170147362535530903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,27 +680,6 @@ MonoBehaviour:
   rocketPref: {fileID: 3015360695695311218, guid: 5bcec5b5731c1aa43ad39f60fa491476, type: 3}
   rocketSpawnPoint: {fileID: 2994061585252179405}
   timeToSet: 0.6
---- !u!65 &8707778005045860768
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7203958721841147112}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.3558264, z: 1}
-  m_Center: {x: 0, y: 1.1795771, z: 0}
 --- !u!114 &5509622472244647212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,6 +711,21 @@ MonoBehaviour:
   PlayerShootAudioClip: {fileID: 8300000, guid: 4d7fd33882187084d90cc4216cfe747c, type: 3}
   AudioSourceShoot: {fileID: 3587681302981324769}
   AudioSourceGetHurt: {fileID: 8713228892223541186}
+--- !u!114 &810579636876016855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203958721841147112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4ada7060660654cbabf79fc12bd289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  granadePrefab: {fileID: 2927378440130734556, guid: 90ca8e35fec5c544fb321c13fc67f158, type: 3}
+  throwPoint: {fileID: 1913873955624711807}
+  throwCooldown: 5
 --- !u!1 &7971687941893475000
 GameObject:
   m_ObjectHideFlags: 0

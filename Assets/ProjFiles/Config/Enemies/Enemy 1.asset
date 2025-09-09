@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 50
   enemyDamage: 5
-  enemySpeed: 7
+  enemySpeed: 8

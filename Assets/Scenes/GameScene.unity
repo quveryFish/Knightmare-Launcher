@@ -376,11 +376,10 @@ MonoBehaviour:
   - {fileID: 1590487552}
   listObj: {fileID: 2048520395}
   enemys:
-  - {fileID: 4654373740627239014, guid: 27161f74dfcad5041aec97b362f98c35, type: 3}
+  - {fileID: 4654373740627239014, guid: 6a65a44e422a96944a98502521b0bea9, type: 3}
+  - {fileID: 4654373740627239014, guid: 6a65a44e422a96944a98502521b0bea9, type: 3}
   - {fileID: 4654373740627239014, guid: 27161f74dfcad5041aec97b362f98c35, type: 3}
   - {fileID: 4654373740627239014, guid: 50526797bbd9ba048adad7b524e98e28, type: 3}
-  - {fileID: 4654373740627239014, guid: 6a65a44e422a96944a98502521b0bea9, type: 3}
-  - {fileID: 4654373740627239014, guid: 6a65a44e422a96944a98502521b0bea9, type: 3}
   timeToSet: 11
 --- !u!1 &110631120
 GameObject:
@@ -3130,7 +3129,7 @@ GameObject:
   - component: {fileID: 659051578}
   - component: {fileID: 659051577}
   - component: {fileID: 659051576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11067,6 +11066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2075131187}
+  - component: {fileID: 2075131188}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -11093,6 +11093,38 @@ Transform:
   - {fileID: 98235740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2075131188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075131186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: ceff8250b6e3e6b4f8fd3a98e7a71c1b, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &2084863854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b5e912e3d74e8e94590546c389807cca, type: 3}
@@ -11704,7 +11736,7 @@ GameObject:
   - component: {fileID: 6270986699402703650}
   - component: {fileID: 8275093620285712532}
   - component: {fileID: 8203438337328730101}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: layer 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11722,7 +11754,7 @@ GameObject:
   - component: {fileID: 5527399245814956392}
   - component: {fileID: 1678975053419775677}
   - component: {fileID: 3015539590093168891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: layer 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11749,7 +11781,7 @@ GameObject:
   - component: {fileID: 5934445690390182873}
   - component: {fileID: 172389716177502887}
   - component: {fileID: 6830620163364944386}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: layer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11840,6 +11872,10 @@ PrefabInstance:
     - target: {fileID: 594999395800515436, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -56.413742
+      objectReference: {fileID: 0}
+    - target: {fileID: 810579636876016855, guid: 9694882603df92646a43f244f55d588a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 915326510041816171, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_Resource
@@ -12051,11 +12087,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4500453353226748975, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 4500453353226748975, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.29
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4500453353226748975, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12156,6 +12192,10 @@ PrefabInstance:
     - target: {fileID: 6211495162328172369, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.0000027158349
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399398767586824411, guid: 9694882603df92646a43f244f55d588a, type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 6486146709120441776, guid: 9694882603df92646a43f244f55d588a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12405,7 +12445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2762339610762682294}
   - component: {fileID: 3251068489786475789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Park-Fountain3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,28 +1,22 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private EnemyData enemyData;
+    [SerializeField] private EnemyData data;
 
-    private GameObject player;
-    private Rigidbody rb;
+    private Transform playerTarget;
+    private NavMeshAgent agent;
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        playerTarget = PlayerHP.Instance.transform;
 
-        player = PlayerHP.Instance.gameObject;
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-        Move();
-    }
-    private void Move()
-    {
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        Vector3 velocity = direction * enemyData.enemySpeed;
-        gameObject.transform.LookAt(player.transform.position);
-        //velocity.y = rb.velocity.y;
-        rb.linearVelocity = velocity;
+        agent.SetDestination(playerTarget.position);
+        agent.speed = data.enemySpeed;
     }
 }

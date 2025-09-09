@@ -42,11 +42,12 @@ GameObject:
   - component: {fileID: 5234391090707591046}
   - component: {fileID: 5073640528443849906}
   - component: {fileID: 8132241799610861290}
-  - component: {fileID: 7413937889739961747}
   - component: {fileID: 2450534054157803835}
   - component: {fileID: 7184328228871196117}
   - component: {fileID: 5840711034539370811}
   - component: {fileID: 5039788882083971254}
+  - component: {fileID: -7465511895660923824}
+  - component: {fileID: -2985852204175363477}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -102,7 +103,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4654373740627239014}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -121,19 +122,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7413937889739961747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4654373740627239014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d81d28cf35d8b240bb6e4e3214d80a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: ac75887476b1dc0499d0e40bf2c3829c, type: 2}
 --- !u!114 &2450534054157803835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4faf56893adcb4f4abaf488dd5c18b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: ac75887476b1dc0499d0e40bf2c3829c, type: 2}
 --- !u!114 &5840711034539370811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +261,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7465511895660923824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654373740627239014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d81d28cf35d8b240bb6e4e3214d80a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: ac75887476b1dc0499d0e40bf2c3829c, type: 2}
+--- !u!195 &-2985852204175363477
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654373740627239014}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 8
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &5008838699770962531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,6 +415,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f5ec77e67cbf9e49b32a13da7b87a4d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5263905403594351840}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f5ec77e67cbf9e49b32a13da7b87a4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 775110736220804575}
   m_SourcePrefab: {fileID: 100100000, guid: 9f5ec77e67cbf9e49b32a13da7b87a4d, type: 3}
 --- !u!4 &4758124745485878664 stripped
 Transform:
@@ -426,3 +451,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &775110736220804575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279223251055075122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2246580c81e9d4f89102005e3a7fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: ac75887476b1dc0499d0e40bf2c3829c, type: 2}
