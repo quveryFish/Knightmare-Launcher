@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 2450534054157803835}
   - component: {fileID: 7184328228871196117}
   - component: {fileID: 5840711034539370811}
+  - component: {fileID: -9108698491763800552}
   - component: {fileID: 4455920215428399242}
   - component: {fileID: -6671873732274632415}
-  - component: {fileID: -9108698491763800552}
   m_Layer: 0
   m_Name: Enemy 2
   m_TagString: Untagged
@@ -164,6 +164,19 @@ MonoBehaviour:
   - {fileID: 1454677870270006655, guid: 67ae873bdba70164b8dcd481d4aff4e9, type: 3}
   - {fileID: 1454677870270006655, guid: 67ae873bdba70164b8dcd481d4aff4e9, type: 3}
   spawnPoint: {fileID: 343275312565537377}
+--- !u!114 &-9108698491763800552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654373740627239014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d81d28cf35d8b240bb6e4e3214d80a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 174744cfab67e884ba347ed23c3c1809, type: 2}
 --- !u!82 &4455920215428399242
 AudioSource:
   m_ObjectHideFlags: 0
@@ -283,19 +296,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-9108698491763800552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4654373740627239014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d81d28cf35d8b240bb6e4e3214d80a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 174744cfab67e884ba347ed23c3c1809, type: 2}
 --- !u!1001 &2641606650042911769
 PrefabInstance:
   m_ObjectHideFlags: 0
