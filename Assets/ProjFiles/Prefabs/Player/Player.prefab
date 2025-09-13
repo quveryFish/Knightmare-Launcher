@@ -544,7 +544,6 @@ GameObject:
   - component: {fileID: 8727997035304234140}
   - component: {fileID: 5509622472244647212}
   - component: {fileID: 7009474047059757422}
-  - component: {fileID: 810579636876016855}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -711,21 +710,6 @@ MonoBehaviour:
   PlayerShootAudioClip: {fileID: 8300000, guid: 4d7fd33882187084d90cc4216cfe747c, type: 3}
   AudioSourceShoot: {fileID: 3587681302981324769}
   AudioSourceGetHurt: {fileID: 8713228892223541186}
---- !u!114 &810579636876016855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7203958721841147112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c4ada7060660654cbabf79fc12bd289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  granadePrefab: {fileID: 2927378440130734556, guid: 90ca8e35fec5c544fb321c13fc67f158, type: 3}
-  throwPoint: {fileID: 1913873955624711807}
-  throwCooldown: 5
 --- !u!1 &7971687941893475000
 GameObject:
   m_ObjectHideFlags: 0

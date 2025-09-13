@@ -980,7 +980,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxExp: 150
   expBar: {fileID: 2139823756}
-  UpgradeUI: {fileID: 1125671720}
 --- !u!4 &250427255
 Transform:
   m_ObjectHideFlags: 0
@@ -9301,6 +9300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1776667791}
+  - component: {fileID: 1776667792}
   m_Layer: 0
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -9324,6 +9324,20 @@ Transform:
   - {fileID: 1125671721}
   m_Father: {fileID: 1880218976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1776667792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776667790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45bd851269f1df4468607a389d269c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1125671720}
+  isUpgPressed: 0
 --- !u!1001 &1778366955
 PrefabInstance:
   m_ObjectHideFlags: 0

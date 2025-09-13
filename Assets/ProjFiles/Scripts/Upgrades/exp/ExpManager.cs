@@ -11,17 +11,13 @@ public class ExpManager : MonoBehaviour
     private int addExpCount = 10;
 
     [SerializeField] private Image expBar;
-    [SerializeField] private GameObject UpgradeUI;
 
     private void Update()
     {
 
         if (currentExp == maxExp)
         {
-            UpgradeUI.SetActive(true);
-            Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            UpgradesUiManager.Instance.OpenUI();
             ResetExp();
         }
         SetMaxExp();//Cheat
