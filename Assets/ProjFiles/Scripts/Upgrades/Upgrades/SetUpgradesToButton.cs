@@ -10,6 +10,10 @@ public class SetUpgradesToButton : MonoBehaviour
     [SerializeField] private GameObject buttonDamage;
     [SerializeField] private GameObject buttonRadius;
     [SerializeField] private GameObject buttonAtkSpeed;
+    [Header("Weapon Burning Upgrade buttons")]
+    [SerializeField] private GameObject buttonBurningAmmon;
+    [SerializeField] private GameObject buttonBurningDmg;
+    [SerializeField] private GameObject buttonBurningDuration;
 
     [Header("Health/Expirience Upgrade buttons")]
     [SerializeField] private GameObject buttonHealth;
@@ -45,31 +49,26 @@ public class SetUpgradesToButton : MonoBehaviour
             button.Value.SetActive(false);
         }
         SelectUpgType();
-        while ((randomSelectedUpg == 301 && movementUpgrades.GetDashPowMaxed()) || (randomSelectedUpg == 302 && movementUpgrades.GetDashTimeMaxed()))
+        while (
+            randomSelectedUpg == 301 && movementUpgrades.GetDashPowMaxed()
+            || randomSelectedUpg == 302 && movementUpgrades.GetDashTimeMaxed()
+            || randomSelectedUpg == 104 && Shoot.Instance.GetBurningAvailable() == true
+            )
         {
-            rnd = Random.Range(1, types.Count);
+            SelectUpgType();
         }
         upgradeButtonsDict[randomSelectedUpg].SetActive(true);
 
     }
-
-    /*
-    private void DisableButtons()
-    {
-       for (int i = 101; i <= upgradeButtonsDict.Count; i++)
-        {
-            if (upgradeButtonsDict[i] == null) { continue; }
-            Debug.Log(upgradeButtonsDict[i]);
-            upgradeButtonsDict[i].SetActive(false);
-        }
-    }
-    */
-
     private void SetButtons()
     {
         upgradeButtonsDict.Add(101, buttonDamage);//Weapon Upgrades
         upgradeButtonsDict.Add(102, buttonRadius);
         upgradeButtonsDict.Add(103, buttonAtkSpeed);
+
+        upgradeButtonsDict.Add(104, buttonBurningAmmon);
+        upgradeButtonsDict.Add(105, buttonBurningDmg);
+        upgradeButtonsDict.Add(106, buttonBurningDuration);
 
         upgradeButtonsDict.Add(201, buttonExp);//Health/Expirience Upgrades
         upgradeButtonsDict.Add(202, buttonHealth);
@@ -80,20 +79,28 @@ public class SetUpgradesToButton : MonoBehaviour
 
     private void SelectUpgType()
     {
-        rnd = Random.Range(1, types.Count);
+        rnd = Random.Range(0, types.Count);
         Debug.Log(rnd);
         switch (types[rnd])
         {
             case 1:
-                randomSelectedUpg = Random.Range(101,104);
+                if (Shoot.Instance.GetBurningAvailable() == true)
+                {
+                    randomSelectedUpg = Random.Range(101, 106 + 1);
+                    break;
+                }
+                else
+                {
+                    randomSelectedUpg = Random.Range(101, 104 + 1);
+                }
                 break;
 
             case 2:
-                randomSelectedUpg = Random.Range(201, 203);
+                randomSelectedUpg = Random.Range(201, 202 +1);
                 break;
 
             case 3:
-                randomSelectedUpg = Random.Range(301, 303);
+                randomSelectedUpg = Random.Range(301, 302 +1);
                 break;
 
             default:

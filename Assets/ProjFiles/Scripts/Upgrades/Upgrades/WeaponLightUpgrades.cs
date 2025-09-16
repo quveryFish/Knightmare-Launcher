@@ -21,7 +21,6 @@ public class WeaponLightUpgrades : MonoBehaviour
         damage.AddRadiusNum();
         Debug.Log("Explosion radius upgraded");
         UpgradesUiManager.Instance.CloseUI();
-        gameObject.SetActive(false);
         //UpgradesUiManager.Instance.isUpgPressed = true;
     }
     public void AtkSpeedUpgrade()
@@ -29,7 +28,6 @@ public class WeaponLightUpgrades : MonoBehaviour
         damage.SubtractShootingTime(0.05f);
         Debug.Log("Attack speed decreased");
         UpgradesUiManager.Instance.CloseUI();
-        gameObject.SetActive(false);
         //UpgradesUiManager.Instance.isUpgPressed = true;
     }
 

@@ -12,7 +12,12 @@ public class Shoot : MonoBehaviour
     [SerializeField] private float timeToSet = 0.6f;
 
     private int raduisUpgNum = 0;
-    private int damage = 10;
+    [SerializeField] private int damage = 10;
+
+    private int burningDamage = 3;
+    private float burningDuration = 5f;
+    private int toBurningAmmoCount = 0;
+    private bool isBurningAvailable = false;
 
     private Vector3 pointToMove;
     private void Awake()
@@ -51,6 +56,14 @@ public class Shoot : MonoBehaviour
         GameObject bullet = Instantiate(rocketPref, rocketSpawnPoint.position, rotatedRotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.linearVelocity = rocketSpawnPoint.forward * bulletSpeed;
+
+        toBurningAmmoCount++;
+        /*
+        if (toBurningAmmoCount == 3)
+        {
+            toBurningAmmoCount = 0;
+        }
+        */
     }
 
     public int AddDamage(int amount)
@@ -79,5 +92,40 @@ public class Shoot : MonoBehaviour
             timeToSet -= amount;
         }
         return timeToSet;
+    }
+
+    public int GetBurnDamage()
+    {
+        return burningDamage;
+    }
+    public int AddBurnDamage(int amount)
+    {
+        burningDamage += amount;
+        return burningDamage;
+    }
+    public float GetBurnDuration()
+    {
+        return burningDuration;
+    }
+    public float AddBurnDuration(float amount)
+    {
+        burningDuration += amount;
+        return burningDuration;
+    }
+    public int GetToBurningAmmoCount()
+    {
+        return toBurningAmmoCount;
+    }
+    public void ResetToBurningAmmoCount()
+    {
+        toBurningAmmoCount = 0;
+    }
+    public bool GetBurningAvailable()
+    {
+        return isBurningAvailable;
+    }
+    public bool SetBurningAvailable(bool value)
+    {
+        return isBurningAvailable = value;
     }
 }
