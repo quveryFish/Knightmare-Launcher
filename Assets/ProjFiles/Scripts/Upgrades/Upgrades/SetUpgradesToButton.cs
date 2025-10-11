@@ -15,6 +15,9 @@ public class SetUpgradesToButton : MonoBehaviour
     [SerializeField] private GameObject buttonBurningDmg;
     [SerializeField] private GameObject buttonBurningDuration;
 
+    [Header("Freeze Granade Upgrade button")]
+    [SerializeField] private GameObject buttonFreezeGranade;
+
     [Header("Health/Expirience Upgrade buttons")]
     [SerializeField] private GameObject buttonHealth;
     [SerializeField] private GameObject buttonExp;
@@ -53,6 +56,7 @@ public class SetUpgradesToButton : MonoBehaviour
             randomSelectedUpg == 301 && movementUpgrades.GetDashPowMaxed()
             || randomSelectedUpg == 302 && movementUpgrades.GetDashTimeMaxed()
             || randomSelectedUpg == 104 && Shoot.Instance.GetBurningAvailable() == true
+            || randomSelectedUpg == 105 && Shoot.Instance.gameObject.GetComponent<FreezeThrow>().isAvalible == true
             )
         {
             SelectUpgType();
@@ -67,8 +71,13 @@ public class SetUpgradesToButton : MonoBehaviour
         upgradeButtonsDict.Add(103, buttonAtkSpeed);
 
         upgradeButtonsDict.Add(104, buttonBurningAmmon);
-        upgradeButtonsDict.Add(105, buttonBurningDmg);
-        upgradeButtonsDict.Add(106, buttonBurningDuration);
+
+        upgradeButtonsDict.Add(105, buttonFreezeGranade);
+
+        upgradeButtonsDict.Add(106, buttonBurningDmg);
+        upgradeButtonsDict.Add(107, buttonBurningDuration);
+
+ 
 
         upgradeButtonsDict.Add(201, buttonExp);//Health/Expirience Upgrades
         upgradeButtonsDict.Add(202, buttonHealth);
@@ -84,14 +93,14 @@ public class SetUpgradesToButton : MonoBehaviour
         switch (types[rnd])
         {
             case 1:
-                if (Shoot.Instance.GetBurningAvailable() == true)
+                if (Shoot.Instance.GetBurningAvailable() == true && Shoot.Instance.gameObject.GetComponent<FreezeThrow>().isAvalible == true)
                 {
-                    randomSelectedUpg = Random.Range(101, 106 + 1);
+                    randomSelectedUpg = Random.Range(101, 107 + 1);
                     break;
                 }
                 else
                 {
-                    randomSelectedUpg = Random.Range(101, 104 + 1);
+                    randomSelectedUpg = Random.Range(101, 105 + 1);
                 }
                 break;
 

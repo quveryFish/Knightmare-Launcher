@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 5039788882083971254}
   - component: {fileID: -7465511895660923824}
   - component: {fileID: -2985852204175363477}
+  - component: {fileID: 6733084840670987811}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -311,6 +312,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6733084840670987811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654373740627239014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6345a032b89ba584ba00a4b95b80a34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezeDuration: 3
+  isFrozen: 0
 --- !u!1 &5923124148664611724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,6 +5280,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4681804441759626293, guid: 9f5ec77e67cbf9e49b32a13da7b87a4d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681804441759626293, guid: 9f5ec77e67cbf9e49b32a13da7b87a4d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: -7423125517761585655, guid: 9f5ec77e67cbf9e49b32a13da7b87a4d, type: 3}
     - target: {fileID: 6623144863160690071, guid: 9f5ec77e67cbf9e49b32a13da7b87a4d, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -4903,6 +4903,7 @@ GameObject:
   - component: {fileID: -6671873732274632415}
   - component: {fileID: -9108698491763800552}
   - component: {fileID: 1101803917435828418}
+  - component: {fileID: -6388970361893229743}
   m_Layer: 0
   m_Name: Enemy 2
   m_TagString: Untagged
@@ -5165,6 +5166,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireEffect: {fileID: 3181085800823434577}
+--- !u!114 &-6388970361893229743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654373740627239014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6345a032b89ba584ba00a4b95b80a34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezeDuration: 3
+  isFrozen: 0
 --- !u!1001 &2641606650042911769
 PrefabInstance:
   m_ObjectHideFlags: 0
