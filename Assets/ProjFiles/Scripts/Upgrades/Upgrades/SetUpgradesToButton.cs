@@ -89,7 +89,7 @@ public class SetUpgradesToButton : MonoBehaviour
     private void SelectUpgType()
     {
         rnd = Random.Range(0, types.Count);
-        Debug.Log(rnd);
+        //Debug.Log(rnd);
         switch (types[rnd])
         {
             case 1:

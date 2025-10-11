@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class EnemyFreeze : MonoBehaviour
 {
+    [SerializeField] private GameObject freezeEffect;
     public float freezeDuration = 3f; // Duration of the freeze effect
     public bool isFrozen = false;
     private Animator enemyAnim;
@@ -45,11 +46,14 @@ public class EnemyFreeze : MonoBehaviour
             enemyMovement.enabled = false;
             nma.enabled = false;
         }
+        freezeEffect.SetActive(true);
     }
 
     private void UnFreeze()
     {
         isFrozen = false;
+        enemyAnim.speed = 1;
+
         if (enemyMovement == null)
         {
             enemyRangedMovement.enabled = true;
@@ -59,7 +63,6 @@ public class EnemyFreeze : MonoBehaviour
             nma.enabled = true;
             enemyMovement.enabled = true;
         }
-
-        enemyAnim.speed = 1;
+        freezeEffect.SetActive(false);
     }
 }

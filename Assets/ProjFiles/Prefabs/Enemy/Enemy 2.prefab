@@ -4927,6 +4927,7 @@ Transform:
   - {fileID: 2531698356517039090}
   - {fileID: 2641204895724767473}
   - {fileID: 3181085800823434575}
+  - {fileID: 4980820911613305368}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5073640528443849906
@@ -5166,6 +5167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireEffect: {fileID: 3181085800823434577}
+  burnMat: {fileID: 2100000, guid: 05c74b0a21ec75541a25e19537664837, type: 2}
 --- !u!114 &-6388970361893229743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5178,6 +5180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6345a032b89ba584ba00a4b95b80a34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeEffect: {fileID: 4649603534319240631}
   freezeDuration: 3
   isFrozen: 0
 --- !u!1001 &2641606650042911769
@@ -5292,3 +5295,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 174744cfab67e884ba347ed23c3c1809, type: 2}
+--- !u!1001 &6239883710780149288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5234391090707591046}
+    m_Modifications:
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593765104375286687, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_Name
+      value: IceCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593765104375286687, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+--- !u!1 &4649603534319240631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1593765104375286687, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+  m_PrefabInstance: {fileID: 6239883710780149288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4980820911613305368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1407351890215201840, guid: e4c2112b57995a04e932f6f21588e4c5, type: 3}
+  m_PrefabInstance: {fileID: 6239883710780149288}
+  m_PrefabAsset: {fileID: 0}
