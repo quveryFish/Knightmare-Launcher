@@ -17,7 +17,7 @@ public class EnemySpawn : MonoBehaviour
     private readonly float spawnDecreasingNum = 0.03f;
 
     private float timerUpgEnemies;
-    private readonly float timeToUpgEnemies = 88f;
+    private readonly float timeToUpgEnemies = 48f;
 
     private int enemyLvlCount = 1;
     void Start()
@@ -29,17 +29,21 @@ public class EnemySpawn : MonoBehaviour
     private void Update()
     {
         timerUpgEnemies -= Time.deltaTime;
+
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
             timer = timeToSet;
             ToSpawn();
         }
+
+
         if (timerUpgEnemies <= 0)
         {
             timerUpgEnemies = timeToUpgEnemies;
             enemyLvlCount++;
             Debug.Log("Enemy Level Up! Current Level: " + enemyLvlCount);
+            timerUpgEnemies = timeToUpgEnemies;
         }
 
     }

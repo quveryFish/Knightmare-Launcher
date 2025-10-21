@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae7283e9acaad444b837c604af3301d5, type: 3}
-  m_Name: Enemy 1
+  m_Name: EnemyBarb
   m_EditorClassIdentifier: 
   enemyHP: 50
-  enemyDamage: 5
-  enemySpeed: 8
+  enemyDamage: 15
+  enemySpeed: 6
+  AttackSpeed: 1.5

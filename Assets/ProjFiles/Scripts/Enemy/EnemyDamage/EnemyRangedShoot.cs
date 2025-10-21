@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class EnemyRangedShoot : MonoBehaviour
 {
+    [SerializeField] private EnemyData enemyData;
     [SerializeField] private int bulletSpeed = 5;
     [SerializeField] private GameObject rocketPref;
     [SerializeField] private Transform rocketSpawnPoint;
     private float timer;
-    private float timeToSet = 2.5f;
+    private float timeToSet;
 
     private AudioSource audioSource;
 
     Transform playerTransform;
     private void Start()
     {
-        timer = timeToSet;
+        timeToSet = enemyData.AttackSpeed;
+        timer = 1;
         playerTransform = PlayerHP.Instance.transform;
         audioSource = gameObject.GetComponent<AudioSource>();
     }
@@ -31,7 +33,7 @@ public class EnemyRangedShoot : MonoBehaviour
     {
         audioSource.Play();
         Quaternion rotatedRotation = rocketSpawnPoint.rotation * Quaternion.Euler(0, 90, 0);
-        GameObject bullet = Instantiate(rocketPref, rocketSpawnPoint.position, rotatedRotation);
+        GameObject bullet = Instantiate(rocketPref, rocketSpawnPoint.position, rotatedRotation, rocketSpawnPoint);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.linearVelocity = (playerTransform.position - rocketSpawnPoint.position).normalized * bulletSpeed;
     }

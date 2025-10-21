@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 1651189807808372783}
   - component: {fileID: 3360237794136228190}
   - component: {fileID: 2170147362535530903}
+  - component: {fileID: 3012549321518998082}
   - component: {fileID: 8727997035304234140}
   - component: {fileID: 5509622472244647212}
   - component: {fileID: 7009474047059757422}
@@ -663,6 +664,25 @@ MonoBehaviour:
   sensX: 200
   sensY: 50
   PlayerCam: {fileID: 6601777804809937287}
+--- !u!114 &3012549321518998082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203958721841147112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caae475e8d24db94894a9175b080233d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezePrefab: {fileID: 2927378440130734556, guid: 90ca8e35fec5c544fb321c13fc67f158, type: 3}
+  throwPoint: {fileID: 1913873955624711807}
+  throwBar: {fileID: 0}
+  throwFreezeUI: {fileID: 0}
+  throwPower: 10
+  throwCd: 10
+  isAvalible: 0
 --- !u!114 &8727997035304234140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +699,7 @@ MonoBehaviour:
   rocketPref: {fileID: 3015360695695311218, guid: 5bcec5b5731c1aa43ad39f60fa491476, type: 3}
   rocketSpawnPoint: {fileID: 2994061585252179405}
   timeToSet: 0.6
+  damage: 10
 --- !u!114 &5509622472244647212
 MonoBehaviour:
   m_ObjectHideFlags: 0

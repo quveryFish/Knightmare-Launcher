@@ -5,17 +5,18 @@ public class ExpManager : MonoBehaviour
 {
     public static ExpManager Instance;
 
-    [SerializeField] private int maxExp = 100;
+    private int maxExp = 30;
     private int currentExp = 0;
 
     private int addExpCount = 10;
 
     [SerializeField] private Image expBar;
+    [SerializeField] private Text expText;
 
     private void Update()
     {
 
-        if (currentExp == maxExp)
+        if (currentExp >= maxExp)
         {
             UpgradesUiManager.Instance.OpenUI();
             ResetExp();
@@ -41,6 +42,7 @@ public class ExpManager : MonoBehaviour
     private void ShowEXPui()
     {
         expBar.fillAmount = (float)currentExp / maxExp;
+        expText.text = currentExp + " / " + maxExp;
     }
 
     private void SetMaxExp()//Cheat
@@ -58,7 +60,7 @@ public class ExpManager : MonoBehaviour
     }
     public int AddExpAddingCount()
     {
-        addExpCount += 40;
+        addExpCount *= 3;
         return addExpCount;
     }
 
