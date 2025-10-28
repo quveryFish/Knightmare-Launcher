@@ -11,6 +11,7 @@ public class PlayerDash : MonoBehaviour
     private Vector3 direction;
 
     private float timer;
+    private float invTimer;
     private readonly float timeToDash = 1.5f;
     private bool canDash = false;
     public bool isDashing = false;
@@ -31,15 +32,21 @@ public class PlayerDash : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
+        invTimer -= Time.deltaTime;
         if (timer >= timeToDash)
         {
             canDash = true;
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
             {
                 isDashing = true;
+
                 Dash();
                 timer = 0;
             }
+        }
+        if (invTimer <= 0)
+        {
+            PlayerHP.Instance.SetInvincible(false);
         }
         ShowDashBar();
     }
@@ -65,6 +72,9 @@ public class PlayerDash : MonoBehaviour
     }
     private void Dash()
     {
+        invTimer = 0.5f;
+        PlayerHP.Instance.SetInvincible(true);
+
         GetDirection(playerMovement.GetVerticalInput(), playerMovement.GetHorizontalInput());
         rb.AddForce(direction * dashPower, ForceMode.Impulse);
         canDash = false;

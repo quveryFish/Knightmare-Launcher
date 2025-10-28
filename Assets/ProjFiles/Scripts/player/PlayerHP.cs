@@ -13,6 +13,8 @@ public class PlayerHP : MonoBehaviour
 
     private int currentHP = 100;
 
+    private bool isInvincible = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -34,8 +36,15 @@ public class PlayerHP : MonoBehaviour
     {
         if (currentHP > 0)
         {
-            currentHP -= damage;
-            ShowHPui();
+            if (!isInvincible)
+            {
+                currentHP -= damage;
+                ShowHPui();
+            }
+            else
+            {
+                Debug.Log("Dodged");
+            }
         }
         if (currentHP <= 0)
         {
@@ -75,5 +84,10 @@ public class PlayerHP : MonoBehaviour
         maxHP += addmaxHP;
         ShowHPui();
         return maxHP;
+    }
+
+    public void SetInvincible(bool state)
+    {
+        isInvincible = state;
     }
 }

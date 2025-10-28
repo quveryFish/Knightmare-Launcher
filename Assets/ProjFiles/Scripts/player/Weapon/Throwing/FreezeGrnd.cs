@@ -5,7 +5,7 @@ public class FreezeGrnd : MonoBehaviour
     [SerializeField] private GameObject freezeGranade;
     [SerializeField] private GameObject freezeRadius;
     [SerializeField] private GameObject explSound;
-    [SerializeField] private float freezeTime = 3f;
+    //[SerializeField] private float freezeTime = 3f;
     readonly private float timeBeforeExplosion = 0.21f;
 
     private float timeToDestroyObj = 2f;
