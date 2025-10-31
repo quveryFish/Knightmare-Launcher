@@ -1,15 +1,21 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EndWave : MonoBehaviour
 {
-    private float timerToEnd = 120f; // 2 minutes timer
+    [SerializeField] private GameObject EndUI;
     private void Update()
     {
-        timerToEnd -= Time.deltaTime;
-        if (timerToEnd <= 0)
+        if ( EnemySpawn.Instance.GetNoEnemies())
         {
-            Debug.Log("Wave Ended!");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0f;
+
+            EndUI.SetActive(true);
+
+            PlayerHP.Instance.gameObject.GetComponent<CameraRotation>().enabled = false;
+            PlayerHP.Instance.gameObject.GetComponent<Shoot>().enabled = false;
+            //Debug.Log("Wave Ended!");
         }
     }
 }

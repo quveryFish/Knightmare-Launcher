@@ -10,5 +10,6 @@ public class EnemyOnDeath : MonoBehaviour
     public void OnDeath()
     {
         Instantiate(lootDrops[Random.Range(0, lootDrops.Count)], spawnPoint.transform.position, Quaternion.identity);
+        EnemySpawn.Instance.spawnedEnemiesList.Remove(this.gameObject);
     }
 }

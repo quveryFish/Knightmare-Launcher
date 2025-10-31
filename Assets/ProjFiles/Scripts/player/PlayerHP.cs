@@ -50,6 +50,10 @@ public class PlayerHP : MonoBehaviour
         {
             currentHP = 0;
             loseUI.SetActive(true);
+
+            gameObject.GetComponent<CameraRotation>().enabled = false;
+            gameObject.GetComponent<Shoot>().enabled = false;
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0f;
