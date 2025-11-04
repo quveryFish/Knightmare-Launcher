@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc593118078148141a4d8275f49cd00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndUI: {fileID: 1581381681}
+  waveUI: {fileID: 1581381681}
 --- !u!4 &1343084267
 Transform:
   m_ObjectHideFlags: 0
@@ -396,46 +396,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ui
       objectReference: {fileID: 0}
-    - target: {fileID: 2237816507390440414, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 3553705114411520457, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553705114411520457, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2307208156677083007, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 3553705114411520457, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553705114411520457, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3293096452647795446, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 3553705114411520457, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3480562261990181292, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3e86b87a746f20641a528edb575885c8, type: 3}
-    - target: {fileID: 3695112815818356814, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 3553705114411520457, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4898321817549091855, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 776095373}
-    - target: {fileID: 5788007659307184341, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
+    - target: {fileID: 7437742823153047450, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7437742823153047450, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7542514818404049270, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3e86b87a746f20641a528edb575885c8, type: 3}
-    - target: {fileID: 7608637295488859199, guid: 585b100ef12c16245bcaca89174430a8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3e86b87a746f20641a528edb575885c8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1282,41 +1274,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2048520395}
     - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
-      propertyPath: worldWaveData
+      propertyPath: worldWave1Data
       value: 
       objectReference: {fileID: 11400000, guid: 8b6f477c4ba2fdd478602a2a2a5440b9, type: 2}
     - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
-      propertyPath: enemies.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
-      propertyPath: 'enemies.Array.data[0]'
+      propertyPath: worldWave2Data
       value: 
-      objectReference: {fileID: 4654373740627239014, guid: 6a65a44e422a96944a98502521b0bea9, type: 3}
+      objectReference: {fileID: 11400000, guid: ec5dfed7945a0894ebcc5b04d3a4c6f8, type: 2}
     - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
-      propertyPath: 'enemies.Array.data[1]'
+      propertyPath: worldWave3Data
       value: 
-      objectReference: {fileID: 4654373740627239014, guid: 27161f74dfcad5041aec97b362f98c35, type: 3}
-    - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
-      propertyPath: 'enemies.Array.data[2]'
-      value: 
-      objectReference: {fileID: 4654373740627239014, guid: 50526797bbd9ba048adad7b524e98e28, type: 3}
+      objectReference: {fileID: 11400000, guid: 67b89b0ed127e8c4a9420c929e83077f, type: 2}
     - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
       propertyPath: enemiesPrefs.Array.size
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
-      propertyPath: 'enemiesPrefs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 4654373740627239014, guid: 6a65a44e422a96944a98502521b0bea9, type: 3}
-    - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
-      propertyPath: 'enemiesPrefs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 4654373740627239014, guid: 27161f74dfcad5041aec97b362f98c35, type: 3}
-    - target: {fileID: 5600597984838541348, guid: bee35aac497ae13428d664465119583b, type: 3}
-      propertyPath: 'enemiesPrefs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 4654373740627239014, guid: 50526797bbd9ba048adad7b524e98e28, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

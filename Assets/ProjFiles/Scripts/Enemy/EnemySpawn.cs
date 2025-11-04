@@ -5,7 +5,9 @@ public class EnemySpawn : MonoBehaviour
 {
     public static EnemySpawn Instance;
     [Header("Wave Data")]
-    [SerializeField] private World1WaveData worldWaveData;
+    [SerializeField] private World1WaveData worldWave1Data;
+    [SerializeField] private World1WaveData worldWave2Data;
+    [SerializeField] private World1WaveData worldWave3Data;
 
 
     [Header("Spawner Data")]
@@ -39,15 +41,15 @@ public class EnemySpawn : MonoBehaviour
     private readonly float timeToUpgEnemies = 48f;
 
     private int enemyLvlCount = 1;
+
+    private int waveCount = 1;
+    public bool newWaveStarted = false;
     void Start()
     {
         timerUpgEnemies = timeToUpgEnemies;
         timer = timeToSet;
 
-        barbsOnWave = worldWaveData.amountOfBarbarians;
-        hoodsOnWave = worldWaveData.amountOfHoods;
-        magesOnWave = worldWaveData.amountOfMages;
-
+        SetEnemies(waveCount);
         ToSpawn();
     }
     private void Update()
@@ -61,24 +63,22 @@ public class EnemySpawn : MonoBehaviour
             ToSpawn();
         }
 
+        UpgradeEnemies();
 
-        if (timerUpgEnemies <= 0)
-        {
-            timerUpgEnemies = timeToUpgEnemies;
-            enemyLvlCount++;
-            Debug.Log("Enemy Level Up! Current Level: " + enemyLvlCount);
-            timerUpgEnemies = timeToUpgEnemies;
-        }
         if (spawnedEnemiesList.Count == 0 && barbsOnWave + hoodsOnWave + magesOnWave == 0)
         {
             noEnemies = true;
+            waveCount++;
+            timer = 17f;
+            newWaveStarted = false;
+            SetEnemies(waveCount);
         }
 
     }
 
     private void ToSpawn()
     {
-            for (int i = 0; i < spawners.Length; i++)
+        for (int i = 0; i < spawners.Length; i++)
             {
                 if (barbsOnWave + hoodsOnWave + magesOnWave > 0)
                 {
@@ -92,6 +92,10 @@ public class EnemySpawn : MonoBehaviour
 
                 }
             }
+        if (newWaveStarted == false)
+        {
+            newWaveStarted = true;
+        }
     }
     public int GetEnemyLvlCount()
     {
@@ -146,10 +150,49 @@ public class EnemySpawn : MonoBehaviour
 
         return enemy;
     }
-       
+
+    private void UpgradeEnemies()
+    {
+
+        if (timerUpgEnemies <= 0)
+        {
+            timerUpgEnemies = timeToUpgEnemies;
+            enemyLvlCount++;
+            Debug.Log("Enemy Level Up! Current Level: " + enemyLvlCount);
+            timerUpgEnemies = timeToUpgEnemies;
+        }
+    }
+    
+    private void SetEnemies(int wave)
+    {
+        switch (wave)
+        {
+            case 1:
+                barbsOnWave = worldWave1Data.amountOfBarbarians;
+                hoodsOnWave = worldWave1Data.amountOfHoods;
+                magesOnWave = worldWave1Data.amountOfMages;
+                break;
+            case 2:
+                barbsOnWave = worldWave2Data.amountOfBarbarians;
+                hoodsOnWave = worldWave2Data.amountOfHoods;
+                magesOnWave = worldWave2Data.amountOfMages;
+                break;
+            case 3:
+                barbsOnWave = worldWave3Data.amountOfBarbarians;
+                hoodsOnWave = worldWave3Data.amountOfHoods;
+                magesOnWave = worldWave3Data.amountOfMages;
+                break;
+        }
+
+    }
+
     public bool GetNoEnemies()
     {
         return noEnemies;
+    }
+    public bool SetNoEnemiesBack()
+    {
+        return noEnemies = false;
     }
     private void Awake()
     {

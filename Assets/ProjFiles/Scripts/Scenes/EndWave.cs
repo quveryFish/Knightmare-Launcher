@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class EndWave : MonoBehaviour
 {
-    [SerializeField] private GameObject EndUI;
+    [SerializeField] private GameObject waveUI;
     private void Update()
     {
         if ( EnemySpawn.Instance.GetNoEnemies())
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            Time.timeScale = 0f;
 
-            EndUI.SetActive(true);
+            waveUI.SetActive(true);
 
-            PlayerHP.Instance.gameObject.GetComponent<CameraRotation>().enabled = false;
-            PlayerHP.Instance.gameObject.GetComponent<Shoot>().enabled = false;
-            //Debug.Log("Wave Ended!");
+            Debug.Log("Wave Ended!");
+            EnemySpawn.Instance.SetNoEnemiesBack();
+        }
+        if (EnemySpawn.Instance.newWaveStarted == true)
+        {
+            waveUI.SetActive(false);
         }
     }
 }
