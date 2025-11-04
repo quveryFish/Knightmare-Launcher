@@ -19,12 +19,21 @@ public class EnemySpawn : MonoBehaviour
 
     private GameObject lastSpawned;
 
+    private int enemyLvlCount = 1;
+
+    private int waveCount = 1;
+    public bool newWaveStarted = false;
 
     [Header("Spawn Timing")]
 
     private float timer;
     [SerializeField] private float timeToSet = 11f;
 
+    private readonly int timeToDecreaseSpawnRate = 3;
+    private readonly float spawnDecreasingNum = 0.05f;
+
+    private float timerUpgEnemies;
+    private readonly float timeToUpgEnemies = 48f;
 
     [Header("Enemies Amounts")]
 
@@ -34,16 +43,8 @@ public class EnemySpawn : MonoBehaviour
 
     private bool noEnemies = false;
 
-    private readonly int timeToDecreaseSpawnRate = 3;
-    private readonly float spawnDecreasingNum = 0.05f;
+    private bool endGame = false;
 
-    private float timerUpgEnemies;
-    private readonly float timeToUpgEnemies = 48f;
-
-    private int enemyLvlCount = 1;
-
-    private int waveCount = 1;
-    public bool newWaveStarted = false;
     void Start()
     {
         timerUpgEnemies = timeToUpgEnemies;
@@ -60,7 +61,14 @@ public class EnemySpawn : MonoBehaviour
         if (timer <= 0)
         {
             timer = timeToSet;
-            ToSpawn();
+            if (!endGame)
+            {
+                ToSpawn();
+            }
+        }
+        if (!newWaveStarted && Input.GetKeyDown(KeyCode.Space))
+        {
+            timer = 1f;
         }
 
         UpgradeEnemies();
@@ -71,7 +79,19 @@ public class EnemySpawn : MonoBehaviour
             waveCount++;
             timer = 17f;
             newWaveStarted = false;
-            SetEnemies(waveCount);
+            if (waveCount <= 3)
+            {
+                SetEnemies(waveCount);
+            }
+            else
+            {
+                if (endGame == false)
+                {
+                    Debug.Log("All Waves Completed!");
+                    endGame = true;
+                }
+            }
+
         }
 
     }
@@ -185,6 +205,12 @@ public class EnemySpawn : MonoBehaviour
         }
 
     }
+
+
+    public bool GetEndGame()
+    {
+        return endGame;
+    } 
 
     public bool GetNoEnemies()
     {

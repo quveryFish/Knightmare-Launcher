@@ -8,7 +8,7 @@ public class Pause_ResumeScript : MonoBehaviour
     private bool isPaused = false;
     private void Start()
     {
-        ResumeGame();
+        ResumeGame(pauseMenu);
     }
     void Update()
     {
@@ -16,28 +16,28 @@ public class Pause_ResumeScript : MonoBehaviour
         {
             if (isPaused)
             {
-                ResumeGame();
+                ResumeGame(pauseMenu);
             }
             else
             {
-                PauseGame();
+                PauseGame(pauseMenu);
             }
         }
     }
-    public void PauseGame()
+    public void PauseGame(GameObject menuUI)
     {
         Time.timeScale = 0f;
-        pauseMenu.SetActive(true);
+        menuUI.SetActive(true);
         player.GetComponent<CameraRotation>().enabled = false;
         player.GetComponent<Shoot>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         isPaused = true;
     }
-    public void ResumeGame()
+    public void ResumeGame(GameObject menuUI)
     {
         Time.timeScale = 1f;
-        pauseMenu.SetActive(false);
+        menuUI.SetActive(false);
         player.GetComponent<CameraRotation>().enabled = true;
         player.GetComponent<Shoot>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
