@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
@@ -45,8 +46,14 @@ public class EnemySpawn : MonoBehaviour
 
     private bool endGame = false;
 
+
+    [Header("Debug")]
+    [SerializeField] private List<KeyCode> SetEnemiesToOneCodeSave;
+    private List<KeyCode> SetEnemiesToOneCode = new List<KeyCode>();
+
     void Start()
     {
+        SetList(SetEnemiesToOneCodeSave, SetEnemiesToOneCode);
         timerUpgEnemies = timeToUpgEnemies;
         timer = timeToSet;
 
@@ -55,6 +62,7 @@ public class EnemySpawn : MonoBehaviour
     }
     private void Update()
     {
+        CheatSetOneEnemy();
         timerUpgEnemies -= Time.deltaTime;
 
         timer -= Time.deltaTime;
@@ -121,7 +129,6 @@ public class EnemySpawn : MonoBehaviour
     {
         return enemyLvlCount;
     }
-
 
     private GameObject SelectEnemyToSpawn()
     {
@@ -204,6 +211,41 @@ public class EnemySpawn : MonoBehaviour
                 break;
         }
 
+    }
+
+    private void CheatSetOneEnemy()
+    {
+        if (SetEnemiesToOneCode.Count > 0)
+        {
+            if (Input.GetKeyDown(SetEnemiesToOneCode[0]))
+            {
+                SetEnemiesToOneCode.Remove(SetEnemiesToOneCode[0]);
+            }
+        }
+        else
+        {
+            barbsOnWave = 0;
+            hoodsOnWave = 0;
+            magesOnWave = 0;
+
+            foreach (GameObject enemy in spawnedEnemiesList)
+            {
+                if (enemy != null)
+                {
+                    Destroy(enemy);
+                }
+            }
+            spawnedEnemiesList.Clear();
+            Debug.Log("Set Enemies To One!");
+            SetList(SetEnemiesToOneCodeSave, SetEnemiesToOneCode);
+        }
+    }
+    private void SetList(List<KeyCode> list, List<KeyCode> pasteListHere)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            pasteListHere.Add(list[i]);
+        }
     }
 
 
